@@ -873,7 +873,7 @@ sub updateTotalRefCnt
             #
             my $fullPoolScan;
             if ( $Conf{PoolSizeNightlyUpdatePeriod} > 0 && defined($opts{P}) ) {
-                my $perNight = int( $Conf{PoolSizeNightUpdatePeriod} / $Conf{BackupPCNightlyPeriod} );
+                my $perNight = int( $Conf{PoolSizeNightlyUpdatePeriod} / $Conf{BackupPCNightlyPeriod} );
                 $fullPoolScan = ($perNight == 0) ||
                   (int($refCntFile / 8) % $perNight) == ( ($opts{P} / $Conf{BackupPCNightlyPeriod}) % $perNight);
             }
