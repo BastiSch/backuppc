@@ -436,7 +436,7 @@ sub updateHostRefCounts
 
     print("__bpc_progress_state__ sumUpdate\n") if ( !$opts{p} );
     for ( my $refCntFile = 0 ; $refCntFile < 128 ; $refCntFile++ ) {
-        print("__bpc_progress_fileCnt__ $refCntFile/128\n") if ( !$opts{p} && ($refCntFile & 0x7) == 0 );
+        print("__bpc_progress_fileCnt__ $refCntFile/128\n") if ( !$opts{p} );
         for ( my $compress = 0 ; $compress < 2 ; $compress++ ) {
             my $count = BackupPC::XS::PoolRefCnt::new();
             my $countDirty;
