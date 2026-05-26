@@ -507,8 +507,8 @@ sub updateHostDelta2Cnt
     foreach my $e ( @$entries ) {
         next if ( $e->{name} !~ /^poolCntDelta/ );
         my $deltaFileName = "$refCntDir/$e->{name}";
-        my $compress      = 1;
-        $compress = $1 if ( $deltaFileName =~ m{/poolCntDelta_(\d)_} );
+        my $compress      = 0;   # combine everything into non-compressed
+	# $compress = $1 if ( $deltaFileName =~ m{/poolCntDelta_(\d)_} );
         $gotDeltas++;
         updateHostPoolOneDelta2Cnt($host, $refCntDir, $deltaFileName, !$forceFsck, $compress, $bkupNum);
     }
