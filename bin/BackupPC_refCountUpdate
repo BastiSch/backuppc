@@ -271,7 +271,7 @@ sub updateHostPoolCnt
             $gotNoPoolCntOk = 1 if ( $e->{name} =~ /^noPoolCntOk/ );
         }
         print(  "BackupPC_refCountUpdate: host $host #$bkupNum: gotFsck = $gotFsck, gotDelta = $gotDelta,"
-              . " gotPoolCnt = $gotPoolCnt, gotNoPoolCntOk = $gotNoPoolCntOk\n")
+              . " gotPoolCnt = $gotPoolCnt, gotNoPoolCntOk = $gotNoPoolCntOk, compression = $compress\n")
           if ( $Conf{XferLogLevel} >= 4 );
         #
         # Apply policy in $ConfRefCntFsck:
@@ -369,7 +369,7 @@ sub processOneHostBackup
     #
     open($fd, ">", "$bkupRefCntDir/needFsck.refCountUpdate") && close($fd);
 
-    print("BackupPC_refCountUpdate: processing host $host #$bkupNum (fsck = $fsck)\n") if ( $Conf{XferLogLevel} >= 2 );
+    print("BackupPC_refCountUpdate: processing host $host #$bkupNum (fsck = $fsck, compress = $compress)\n") if ( $Conf{XferLogLevel} >= 2 );
 
     if ( $fsck ) {
         my $entries = BackupPC::DirOps::dirRead($bpc, $bkupRefCntDir);
