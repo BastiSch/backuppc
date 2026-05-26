@@ -520,9 +520,9 @@ sub Main_TryToRun_nightly
                     #
                     my $clear;
                     if ( $Conf{PoolSizeNightlyUpdatePeriod} > 0 ) {
-			my $perNight = int( $Conf{PoolSizeNightUpdatePeriod} / $Conf{BackupPCNightlyPeriod} );
+                        my $perNight = int( $Conf{PoolSizeNightlyUpdatePeriod} / $Conf{BackupPCNightlyPeriod} );
                         $clear = ($perNight == 0) ||
-			    ($i % $perNight) == ( ($Info->{PoolSizeNightlyPhase} / $Conf{BackupPCNightlyPeriod})% $perNight);
+                            ($i % $perNight) == ( ($Info->{PoolSizeNightlyPhase} / $Conf{BackupPCNightlyPeriod})% $perNight);
                     }
                     #print(LOG $bpc->timeStamp, "updating $p size of $i (clear = $clear, phase = $Info->{PoolSizeNightlyPhase},"
                     #                         . " \$Conf{PoolSizeNightlyUpdatePeriod} = $Conf{PoolSizeNightlyUpdatePeriod})\n");
